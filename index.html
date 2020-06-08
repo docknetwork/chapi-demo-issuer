@@ -14,30 +14,33 @@
   <script src="https://unpkg.com/credential-handler-polyfill@2.1.1/dist/credential-handler-polyfill.min.js"></script>
 </head>
 <body>
-
+<br>
 <div class="container">
-  <div class="card-panel">
-    <h5>Credential Handler API (CHAPI) Demo Issuer</h5>
-    <p><a href="https://github.com/digitalbazaar/credential-handler-polyfill">Read more about CHAPI</a></p>
+  <div class="card-panel" style="background-color: #2c2b3f; color: white">
+    <h3><img src="favicon.png" style="float:left;">CHAPI Demo Issuer</h3>
     <p>
-      If you have not yet picked a wallet and registered it with your browser,
-      try out the
-      <a href="https://chapi-demo-wallet.digitalbazaar.com/">Demo Wallet</a>.
+      <i>
+        If you have not yet picked a wallet and registered it with your browser,
+        try out the
+      <a href="https://docknetwork.github.io/chapi-demo-wallet/">Demo Wallet</a>.
+      </i>
     </p>
+    <div class="card-panel" id="mainInfo" style="color: black">
 
-    <p>This is a minimal credential Issuer application that demonstrates
-      how a user would ask for a credential to be issued
-      (using CHAPI's <code>store()</code> under the hood).
-    </p>
+      <p>This is a minimal credential Issuer application that demonstrates
+        how a user would ask for a credential to be issued
+        (using CHAPI's <code>store()</code> under the hood).
+      </p>
 
-    <p>When you click the Receive button, a Verifiable Credential will
-      be issued and sent to your digital wallet for storage.
-    </p>
+      <p>When you click the Receive button, a Verifiable Credential will
+        be issued and sent to your digital wallet for storage.
+      </p>
 
-    <a class="waves-effect waves-light btn" id="receiveButton">Receive a Credential</a>
+      <a class="waves-effect waves-light btn purple" id="receiveButton">Receive a Credential</a>
+    </div>
   </div>
 
-  <div class="card-panel hide" id="resultsPanel">
+  <div class="card-panel hide" id="resultsPanel" style="color: black">
     <h6>Result of store() operation:</h6>
 
     <code id="storeResults"></code>
