@@ -3,7 +3,7 @@ const credSov = {
         "https://www.w3.org/2018/credentials/v1",
         "https://www.w3.org/2018/credentials/examples/v1"
     ],
-    "id": "https://example.com/credentials/1",
+    "id": "https://example.com/credentials/789",
     "type": [
         "VerifiableCredential",
         "AlumniCredential"
@@ -11,18 +11,18 @@ const credSov = {
     "credentialSubject": [
         {
             "id": "did:sov:WRfXPg8dantKVubE3HX8pw",
-            "alumniOf": "Some Example University"
+            "alumniOf": "Some Other Example University"
         }
     ],
-    "issuanceDate": "2020-06-09T22:38:11.722Z",
+    "issuanceDate": "2020-06-11T19:27:45.253Z",
     "proof": {
-        "type": "Ed25519Signature2018",
-        "created": "2020-06-09T22:38:13Z",
-        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..9g0esveE2v86QpQ7hMBx5uqVLvtB5-GTp52WUmTu0Dyqu6pdYnupzd4i686lXRAujOQu-npZF3zwjfqBlCWRAw",
+        "type": "Sr25519Signature2020",
+        "created": "2020-06-11T19:27:46Z",
+        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..KGI3lqq4GiHEC3yYrMCzYBKvkyJmDxuowpkPW_JtlGPjhxgvfsYg7HEkUxaq8DEsvk1mRBlfwDjcinGPfwoagQ",
         "proofPurpose": "assertionMethod",
-        "verificationMethod": "did:dock:5F6Edb9DMoEnZmePEtDZZJfxd9gwgjvuiR1K9WH95xog8JLL#keys-1"
+        "verificationMethod": "did:dock:5FK9zBFycuJDopCKodhwS8g4GeHi1xaHtf8Ppx4LycXRUbg3#keys-1"
     },
-    "issuer": "did:dock:5F6Edb9DMoEnZmePEtDZZJfxd9gwgjvuiR1K9WH95xog8JLL"
+    "issuer": "did:dock:5FK9zBFycuJDopCKodhwS8g4GeHi1xaHtf8Ppx4LycXRUbg3"
 }
 
 const credBtcr = {
@@ -30,7 +30,7 @@ const credBtcr = {
         "https://www.w3.org/2018/credentials/v1",
         "https://www.w3.org/2018/credentials/examples/v1"
     ],
-    "id": "https://example.com/credentials/2",
+    "id": "https://example.com/credentials/456",
     "type": [
         "VerifiableCredential",
         "AlumniCredential"
@@ -38,18 +38,18 @@ const credBtcr = {
     "credentialSubject": [
         {
             "id": "did:btcr:xz35-jznz-q9yu-ply",
-            "alumniOf": "Some Other Example University"
+            "alumniOf": "Another Example University"
         }
     ],
-    "issuanceDate": "2020-06-09T22:38:16.026Z",
+    "issuanceDate": "2020-06-11T19:26:38.423Z",
     "proof": {
-        "type": "EcdsaSecp256k1Signature2019",
-        "created": "2020-06-09T22:38:16Z",
-        "jws": "eyJhbGciOiJFUzI1NksiLCJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdfQ..MEQCIHPFch_dC5Bk81ExLV6FpNJ9ma-vtb7bSPqxmCeLJ0qZAiBQYn8rTlOjWUm8yuY-zKRAz2hJbeB7aSIb9GVf4o0UxQ",
+        "type": "Sr25519Signature2020",
+        "created": "2020-06-11T19:26:39Z",
+        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..IHxlYRTthxa4LiAeCHlnyIUgkDk_IVSUJxyjUC_mQjsMYnnDM7bamnn-jLWftOPiLGIRJESIDrU3-0wb6Wtxig",
         "proofPurpose": "assertionMethod",
-        "verificationMethod": "did:dock:5Cdzps87rBxwVDdSRukR7QrU5KmPMURfzdwpKug3s3tiZsUg#keys-1"
+        "verificationMethod": "did:dock:5CR9VTkuBRsRda8HwgQS92D48mYkyzGW15238wf93qE8Ppe3#keys-1"
     },
-    "issuer": "did:dock:5Cdzps87rBxwVDdSRukR7QrU5KmPMURfzdwpKug3s3tiZsUg"
+    "issuer": "did:dock:5CR9VTkuBRsRda8HwgQS92D48mYkyzGW15238wf93qE8Ppe3"
 }
 
 const credEthr = {
@@ -57,7 +57,7 @@ const credEthr = {
         "https://www.w3.org/2018/credentials/v1",
         "https://www.w3.org/2018/credentials/examples/v1"
     ],
-    "id": "https://example.com/credentials/3",
+    "id": "https://example.com/credentials/123",
     "type": [
         "VerifiableCredential",
         "AlumniCredential"
@@ -65,16 +65,16 @@ const credEthr = {
     "credentialSubject": [
         {
             "id": "did:ethr:0xE6Fe788d8ca214A080b0f6aC7F48480b2AEfa9a6",
-            "alumniOf": "Another Example University"
+            "alumniOf": "Example University"
         }
     ],
-    "issuanceDate": "2020-06-09T22:38:20.118Z",
+    "issuanceDate": "2020-06-11T19:24:19.426Z",
     "proof": {
         "type": "Sr25519Signature2020",
-        "created": "2020-06-09T22:38:21Z",
-        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..yB1f-pa34ao4lwT9iJIuvIZsVrDe_I6tVjljjBeG8ngEAc43x6oYKxbnRqdRPMeUsEQo95_hxmeUynznqgPsjA",
+        "created": "2020-06-11T19:24:20Z",
+        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..ihvWf7Ml-2nON6YNJLUc8MP-eJHLJ6nr7HmyNAVteXuOQv_tUJxBNkKS_x2JU3KfqQ0I8nJzmwLXRxaEvVBhiA",
         "proofPurpose": "assertionMethod",
-        "verificationMethod": "did:dock:5E5Bbwi6ro1ntPK1h3QYUt3RUcp1CYQjUGziDpHtbHTjk23g#keys-1"
+        "verificationMethod": "did:dock:5GLtZYVK5wjwo3tTvLU3GeVJ9x1Yu8F3smyFg7XTsUms6vw9#keys-1"
     },
-    "issuer": "did:dock:5E5Bbwi6ro1ntPK1h3QYUt3RUcp1CYQjUGziDpHtbHTjk23g"
+    "issuer": "did:dock:5GLtZYVK5wjwo3tTvLU3GeVJ9x1Yu8F3smyFg7XTsUms6vw9"
 }
