@@ -20,9 +20,9 @@ const credSov = {
         "created": "2020-06-11T19:27:46Z",
         "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..KGI3lqq4GiHEC3yYrMCzYBKvkyJmDxuowpkPW_JtlGPjhxgvfsYg7HEkUxaq8DEsvk1mRBlfwDjcinGPfwoagQ",
         "proofPurpose": "assertionMethod",
-        "verificationMethod": "did:dock:5EGVpSSfCaovaVazFjbnmVX7oCG1HHxr2PnVZtnNjSfrKrh3#keys-1"
+        "verificationMethod": "did:dock:5ENAMn7nCVtrnXRVBSptnx6m4MrzQRKiY5AyydigCDzwPXhN#keys-1"
     },
-    "issuer": "did:dock:5EGVpSSfCaovaVazFjbnmVX7oCG1HHxr2PnVZtnNjSfrKrh3"
+    "issuer": "did:dock:5ENAMn7nCVtrnXRVBSptnx6m4MrzQRKiY5AyydigCDzwPXhN"
 }
 
 const credBtcr = {
@@ -47,9 +47,9 @@ const credBtcr = {
         "created": "2020-06-11T19:26:39Z",
         "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..IHxlYRTthxa4LiAeCHlnyIUgkDk_IVSUJxyjUC_mQjsMYnnDM7bamnn-jLWftOPiLGIRJESIDrU3-0wb6Wtxig",
         "proofPurpose": "assertionMethod",
-        "verificationMethod": "did:dock:5EGVpSSfCaovaVazFjbnmVX7oCG1HHxr2PnVZtnNjSfrKrh3#keys-1"
+        "verificationMethod": "did:dock:5ENAMn7nCVtrnXRVBSptnx6m4MrzQRKiY5AyydigCDzwPXhN#keys-1"
     },
-    "issuer": "did:dock:5EGVpSSfCaovaVazFjbnmVX7oCG1HHxr2PnVZtnNjSfrKrh3"
+    "issuer": "did:dock:5ENAMn7nCVtrnXRVBSptnx6m4MrzQRKiY5AyydigCDzwPXhN"
 }
 
 const credEthr = {
@@ -74,7 +74,7 @@ const credEthr = {
         "created": "2020-06-11T19:24:20Z",
         "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..ihvWf7Ml-2nON6YNJLUc8MP-eJHLJ6nr7HmyNAVteXuOQv_tUJxBNkKS_x2JU3KfqQ0I8nJzmwLXRxaEvVBhiA",
         "proofPurpose": "assertionMethod",
-        "verificationMethod": "did:dock:5EGVpSSfCaovaVazFjbnmVX7oCG1HHxr2PnVZtnNjSfrKrh3#keys-1"
+        "verificationMethod": "did:dock:5ENAMn7nCVtrnXRVBSptnx6m4MrzQRKiY5AyydigCDzwPXhN#keys-1"
     },
-    "issuer": "did:dock:5EGVpSSfCaovaVazFjbnmVX7oCG1HHxr2PnVZtnNjSfrKrh3"
+    "issuer": "did:dock:5ENAMn7nCVtrnXRVBSptnx6m4MrzQRKiY5AyydigCDzwPXhN"
 }
