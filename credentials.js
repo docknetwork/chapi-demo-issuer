@@ -1,8 +1,5 @@
 const credSov = {
   id: 'https://example.com/credentials/789',
-  context: ['https://www.w3.org/2018/credentials/v1',
-    'https://www.w3.org/2018/credentials/examples/v1'
-  ],
   type: ['VerifiableCredential', 'AlumniCredential'],
   credentialSubject: [{
     id: 'did:sov:WRfXPg8dantKVubE3HX8pw',
@@ -10,8 +7,9 @@ const credSov = {
   }],
   issuanceDate: '2020-06-11T19:27:45.253Z',
   issuer: 'did:dock:5ENAMn7nCVtrnXRVBSptnx6m4MrzQRKiY5AyydigCDzwPXhN',
-  '@context': ['https://www.w3.org/2018/credentials/v1',
-    'https://www.w3.org/2018/credentials/examples/v1'
+  '@context': [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/2018/credentials/examples/v1"
   ],
   proof: {
     type: 'Ed25519Signature2018',
@@ -24,9 +22,6 @@ const credSov = {
 
 const credBtcr = {
   id: 'https://example.com/credentials/456',
-  context: ['https://www.w3.org/2018/credentials/v1',
-    'https://www.w3.org/2018/credentials/examples/v1'
-  ],
   type: ['VerifiableCredential', 'AlumniCredential'],
   credentialSubject: [{
     id: 'did:btcr:xz35-jznz-q9yu-ply',
@@ -48,9 +43,6 @@ const credBtcr = {
 
 const credEthr = {
   id: 'https://example.com/credentials/123',
-  context: ['https://www.w3.org/2018/credentials/v1',
-    'https://www.w3.org/2018/credentials/examples/v1'
-  ],
   type: ['VerifiableCredential', 'AlumniCredential'],
   credentialSubject: [{
     id: 'did:ethr:0xE6Fe788d8ca214A080b0f6aC7F48480b2AEfa9a6',
