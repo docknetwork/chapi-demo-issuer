@@ -1,63 +1,67 @@
-const credSov = {
-  id: 'https://example.com/credentials/789',
-  type: ['VerifiableCredential', 'AlumniCredential'],
-  credentialSubject: [{
-    id: 'did:sov:WRfXPg8dantKVubE3HX8pw',
-    alumniOf: 'Some Other Example University'
-  }],
-  issuanceDate: '2020-06-11T19:27:45.253Z',
-  issuer: 'did:dock:5ENAMn7nCVtrnXRVBSptnx6m4MrzQRKiY5AyydigCDzwPXhN',
-  '@context': [
+const permanentResidentCard = {
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/citizenship/v1"
+  ],
+  "type": [
+    "VerifiableCredential",
+    "PermanentResidentCard"
+  ],
+  "credentialSubject": {
+    "id": "did:key:z6Mkte9e5E2GRozAgYyhktX7eTt9woCR4yJLnaqC88FQCSyY",
+    "type": [
+      "PermanentResident",
+      "Person"
+    ],
+    "givenName": "JOHN",
+    "familyName": "SMITH",
+    "gender": "Male",
+    "image": "data:image/png;base64,iVBORw0KGgo...kJggg==",
+    "residentSince": "2015-01-01",
+    "lprCategory": "C09",
+    "lprNumber": "000-000-204",
+    "commuterClassification": "C1",
+    "birthCountry": "Bahamas",
+    "birthDate": "1958-08-17"
+  },
+  "issuer": "did:web:vc.transmute.world",
+  "issuanceDate": "2020-04-27T10:18:22Z",
+  "identifier": "83627465",
+  "name": "Permanent Resident Card",
+  "description": "Government of Example Permanent Resident Card.",
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2019-12-11T03:50:55Z",
+    "verificationMethod": "did:web:vc.transmute.world#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+    "proofPurpose": "assertionMethod",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..KLEEhlIsQjyN4CJS7HM8IFAzK9HyDbTP6Bm28rVMVCAF8Tv508im027zjxVf1fBhDFnR-d06rN5j-ShiGvgEBA"
+  }
+};
+
+const universityDegree = {
+  "@context": [
     "https://www.w3.org/2018/credentials/v1",
     "https://www.w3.org/2018/credentials/examples/v1"
   ],
-  proof: {
-    type: 'Ed25519Signature2018',
-    created: '2020-06-15T21:29:58Z',
-    jws: 'eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..ujnSumbSN7nFWjQerlQ3D41QwqQKDWAhWUo2GhbO91srK_fbG0PIjFXHM7P3lzsWnmffpwb_WzS4_VFHygXWiQ',
-    proofPurpose: 'assertionMethod',
-    verificationMethod: 'did:dock:5ENAMn7nCVtrnXRVBSptnx6m4MrzQRKiY5AyydigCDzwPXhN#keys-1'
-  }
-};
-
-const credBtcr = {
-  id: 'https://example.com/credentials/456',
-  type: ['VerifiableCredential', 'AlumniCredential'],
-  credentialSubject: [{
-    id: 'did:btcr:xz35-jznz-q9yu-ply',
-    alumniOf: 'Another Example University'
-  }],
-  issuanceDate: '2020-06-11T19:26:38.423Z',
-  issuer: 'did:dock:5ENAMn7nCVtrnXRVBSptnx6m4MrzQRKiY5AyydigCDzwPXhN',
-  '@context': ['https://www.w3.org/2018/credentials/v1',
-    'https://www.w3.org/2018/credentials/examples/v1'
+  "id": "http://example.gov/credentials/3732#a3de9c34-5c95-4110-af13-53a749a07fd5",
+  "type": [
+    "VerifiableCredential",
+    "universityDegree"
   ],
-  proof: {
-    type: 'Ed25519Signature2018',
-    created: '2020-06-15T21:29:35Z',
-    jws: 'eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YOTAxRTGk0BkMUzf7MnpPjFMqyk3ZFA94nRWRXCjEFbhsKqEMRFy1n1xfgE-1oza-OZ9FkZnQfJyrRgfOEJ0iQ',
-    proofPurpose: 'assertionMethod',
-    verificationMethod: 'did:dock:5ENAMn7nCVtrnXRVBSptnx6m4MrzQRKiY5AyydigCDzwPXhN#keys-1'
-  }
-};
-
-const credEthr = {
-  id: 'https://example.com/credentials/123',
-  type: ['VerifiableCredential', 'AlumniCredential'],
-  credentialSubject: [{
-    id: 'did:ethr:0xE6Fe788d8ca214A080b0f6aC7F48480b2AEfa9a6',
-    alumniOf: 'Example University'
-  }],
-  issuanceDate: '2020-06-11T19:24:19.426Z',
-  issuer: 'did:dock:5ENAMn7nCVtrnXRVBSptnx6m4MrzQRKiY5AyydigCDzwPXhN',
-  '@context': ['https://www.w3.org/2018/credentials/v1',
-    'https://www.w3.org/2018/credentials/examples/v1'
-  ],
-  proof: {
-    type: 'Ed25519Signature2018',
-    created: '2020-06-15T21:28:55Z',
-    jws: 'eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Mvy9SYUJk1rdA7gOQB222H-weZMCCxL6xveT1vyd4xR6VApfYypLewVALAY3FphZulJMh52MBekxmfT9urJDiQ',
-    proofPurpose: 'assertionMethod',
-    verificationMethod: 'did:dock:5ENAMn7nCVtrnXRVBSptnx6m4MrzQRKiY5AyydigCDzwPXhN#keys-1'
+  "issuer": "did:key:z6MktT2KTXK3So7Eskmvn96QccaVCGeLjFtpuGrTAY24Ls9X",
+  "issuanceDate": "2020-03-10T04:24:12.164Z",
+  "credentialSubject": {
+    "id": "did:key:z6MktT2KTXK3So7Eskmvn96QccaVCGeLjFtpuGrTAY24Ls9X",
+    "degree": {
+      "type": "BachelorDegree",
+      "name": "Bachelor of Science and Arts"
+    }
+  },
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2020-04-23T16:33:25Z",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..X_lVFbbB-MHJ6fEE9C8RcuJi2IHBjgKwhK5QVqOPI-lXbv6aPHUgsLM9JtKTKSBvP303YUW3qTzjtOI7P539Cg",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:key:z6MktT2KTXK3So7Eskmvn96QccaVCGeLjFtpuGrTAY24Ls9X#z6MktT2KTXK3So7Eskmvn96QccaVCGeLjFtpuGrTAY24Ls9X"
   }
 };

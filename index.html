@@ -40,9 +40,8 @@
         be issued and sent to your registered digital wallet for storage.
       </p>
 
-      <a class="waves-effect waves-light btn purple" id="receiveSovButton" cred=credSov>Sovrin DID Credential</a>
-      <a class="waves-effect waves-light btn purple" id="receiveBtcrButton" cred=credBtcr>BTCR DID Credential</a>
-      <a class="waves-effect waves-light btn purple" id="receiveEthrButton" cred=credEthr>ETHR DID Credential</a>
+      <a class="waves-effect waves-light btn purple" id="receiveSovButton" cred=permanentResidentCard>Permanent Resident Card</a>
+      <a class="waves-effect waves-light btn purple" id="receiveBtcrButton" cred=universityDegree>University Degree</a>
     </div>
   </div>
 
@@ -91,9 +90,9 @@
 
   ready(() => {
     document.getElementById('receiveSovButton').addEventListener('click', onClickReceive, false);
-    document.getElementById('receiveSovButton').cred = credSov
+    document.getElementById('receiveSovButton').cred = permanentResidentCard
     document.getElementById('receiveBtcrButton').addEventListener('click', onClickReceive, false);
-    document.getElementById('receiveBtcrButton').cred = credBtcr
+    document.getElementById('receiveBtcrButton').cred = universityDegree
     document.getElementById('receiveEthrButton').addEventListener('click', onClickReceive, false);
     document.getElementById('receiveEthrButton').cred = credEthr
     console.log('Document ready.')
