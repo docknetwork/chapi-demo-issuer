@@ -1,111 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Minimal Demo Issuer</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <!-- Compiled and minified Materialize JS/CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-  <!--Credential Handler API Polyfill-->
-  <script src="https://unpkg.com/credential-handler-polyfill@2.1.1/dist/credential-handler-polyfill.min.js"></script>
-  <script src="credentials.js"></script>
-</head>
-<body>
-<br>
-<div class="container">
-  <div class="card-panel" style="background-color: #2c2b3f;">
-    <div style="background-color: #2c2b3f; color: white">
-      <h3><img src="favicon.png" style="float:left;">CHAPI Demo Issuer</h3>
-      <p>
-        <i>
-          If you have not yet picked a wallet and registered it with your browser,
-          try out the
-        <a href="https://docknetwork.github.io/chapi-demo-wallet/">Demo Wallet</a>.
-        </i>
-      </p>
+  <head>
+    <title>Minimal Demo Issuer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified Materialize JS/CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Credential Handler API Polyfill-->
+    <script src="https://unpkg.com/credential-handler-polyfill@2.1.1/dist/credential-handler-polyfill.min.js"></script>
+    <script src="credentials.js"></script>
+  </head>
+  <body>
+    <br>
+    <div class="container">
+      <div class="card-panel" style="background-color: #2c2b3f;">
+        <div style="background-color: #2c2b3f; color: white">
+          <h3><img src="favicon.png" style="float:left;">CHAPI Demo Issuer</h3>
+          <p>
+            <i>
+              If you have not yet picked a wallet and registered it with your browser,
+              try out the
+              <a href="https://docknetwork.github.io/chapi-demo-wallet/">Demo Wallet</a>.
+            </i>
+          </p>
+        </div>
+        <div class="card-panel" id="mainInfo">
+          <p>
+            This is a minimal credential Issuer application that demonstrates
+            how a user would ask for a credential to be issued
+            (using CHAPI's <code>store()</code> under the hood).
+          </p>
+          <p>
+            When you click one of the buttons below, a Verifiable Credential will
+            be issued and sent to your registered digital wallet for storage.
+          </p>
+          <p>
+            Below we provide a valid credential, the Permanent Resident Card, and an invalid credential, a University Degree. When presented to the verifier one will succeed, the other will fail.
+          </p>
+          <a class="waves-effect waves-light btn purple" id="receiveSovButton" cred=permanentResidentCard>Permanent Resident Card (valid)</a>
+          <a class="waves-effect waves-light btn purple" id="receiveBtcrButton" cred=universityDegree>University Degree (invalid)</a>
+        </div>
+      </div>
+      <div class="card-panel hide" id="resultsPanel" style="overflow-wrap: break-word;">
+        <h6>Result of store() operation:</h6>
+        <div id="storeResults" style="white-space: pre-wrap; font-family:monospace;"></div>
+      </div>
     </div>
+    <script>
+      async function onClickReceive(e) {
+        // Construct the WebCredential wrapper around the credential to be stored
+        const credential = e.target.cred;
+        const presentation = {
+          "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://www.w3.org/2018/credentials/examples/v1"
+          ],
+          "type": "VerifiablePresentation",
+          "verifiableCredential": [credential]
+        }
+        // ^ Note that:
+        // 1. The Verifiable Credentials are signed, and wrapped in a VerifiablePresentation.
+        // 2. The wrapping VerifiablePresentation is not signed.
 
-    <div class="card-panel" id="mainInfo">
+        const webCredentialWrapper = new WebCredential(presentation.type, presentation);
 
-      <p>This is a minimal credential Issuer application that demonstrates
-        how a user would ask for a credential to be issued
-        (using CHAPI's <code>store()</code> under the hood).
-      </p>
+        document.getElementById('storeResults').innerText = 'Storing credential...';
 
-      <p>When you click one of the buttons below, a Verifiable Credential will
-        be issued and sent to your registered digital wallet for storage.
-      </p>
+        // Use Credential Handler API to store
+        const result = await navigator.credentials.store(webCredentialWrapper);
 
-      <a class="waves-effect waves-light btn purple" id="receiveSovButton" cred=permanentResidentCard>Permanent Resident Card</a>
-      <a class="waves-effect waves-light btn purple" id="receiveBtcrButton" cred=universityDegree>University Degree</a>
-    </div>
-  </div>
+        document.getElementById('resultsPanel').classList.remove('hide');
+        document.getElementById('storeResults').innerText = JSON.stringify(result, null, 2);
 
-  <div class="card-panel hide" id="resultsPanel" style="overflow-wrap: break-word;">
-    <h6>Result of store() operation:</h6>
+        console.log('Result of receiving via store() request:', result);
+      }
 
-    <div id="storeResults" style="white-space: pre-wrap; font-family:monospace;"></div>
-  </div>
-</div>
-<script>
-  async function onClickReceive(e) {
-    // Construct the WebCredential wrapper around the credential to be stored
-    const credential = e.target.cred;
-    const presentation = {
-      "@context": [
-        "https://www.w3.org/2018/credentials/v1",
-        "https://www.w3.org/2018/credentials/examples/v1"
-      ],
-      "type": "VerifiablePresentation",
-      "verifiableCredential": [credential]
-    }
-    // ^ Note that:
-    // 1. The Verifiable Credentials are signed, and wrapped in a VerifiablePresentation.
-    // 2. The wrapping VerifiablePresentation is not signed.
+      function ready(fn) {
+        if(document.readyState !== 'loading') {
+          fn();
+        } else {
+          document.addEventListener('DOMContentLoaded', fn);
+        }
+      }
 
-    const webCredentialWrapper = new WebCredential(presentation.type, presentation);
+      ready(() => {
+        document.getElementById('receiveSovButton').addEventListener('click', onClickReceive, false);
+        document.getElementById('receiveSovButton').cred = permanentResidentCard
+        document.getElementById('receiveBtcrButton').addEventListener('click', onClickReceive, false);
+        document.getElementById('receiveBtcrButton').cred = universityDegree
+        console.log('Document ready.')
+      })
 
-    document.getElementById('storeResults').innerText = 'Storing credential...';
+      const MEDIATOR = 'https://beta.authn.io/mediator' + '?origin=' +
+        encodeURIComponent(window.location.origin);
 
-    // Use Credential Handler API to store
-    const result = await navigator.credentials.store(webCredentialWrapper);
-
-    document.getElementById('resultsPanel').classList.remove('hide');
-    document.getElementById('storeResults').innerText = JSON.stringify(result, null, 2);
-
-    console.log('Result of receiving via store() request:', result);
-  }
-
-  function ready(fn) {
-    if(document.readyState !== 'loading') {
-      fn();
-    } else {
-      document.addEventListener('DOMContentLoaded', fn);
-    }
-  }
-
-  ready(() => {
-    document.getElementById('receiveSovButton').addEventListener('click', onClickReceive, false);
-    document.getElementById('receiveSovButton').cred = permanentResidentCard
-    document.getElementById('receiveBtcrButton').addEventListener('click', onClickReceive, false);
-    document.getElementById('receiveBtcrButton').cred = universityDegree
-    document.getElementById('receiveEthrButton').addEventListener('click', onClickReceive, false);
-    document.getElementById('receiveEthrButton').cred = credEthr
-    console.log('Document ready.')
-  })
-
-  const MEDIATOR = 'https://beta.authn.io/mediator' + '?origin=' +
-    encodeURIComponent(window.location.origin);
-
-  credentialHandlerPolyfill
-    .loadOnce(MEDIATOR)
-    .then(console.log('Polyfill loaded.'))
-    .catch(e => console.error('Error loading polyfill:', e));
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
+      credentialHandlerPolyfill
+        .loadOnce(MEDIATOR)
+        .then(console.log('Polyfill loaded.'))
+        .catch(e => console.error('Error loading polyfill:', e));
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
 </html>
